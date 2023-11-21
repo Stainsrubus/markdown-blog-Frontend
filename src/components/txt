@@ -1,0 +1,69 @@
+<!-- 
+import '../index.css'
+import markdownLogo from '../assets/markdown_logo.png'; 
+import { Logouticon } from '../assets/icons';
+import useLogout from './hooks/useLogout'
+import { useEffect,useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+
+function Header() {
+    let userData = JSON.parse(sessionStorage.getItem('userData'))
+    let [role,setRole] = useState("")
+    let logout = useLogout()
+    useEffect(()=>{
+        if(!userData)
+        {
+            logout()
+        }
+        else
+        {
+            setRole(userData.role)
+        }
+    },[])
+  return (
+    <header className="header">
+      <div className="container">
+   
+        <div className="logo-wrapper">
+          <div className="logo">
+          <img src={markdownLogo} alt="Markdown Logo" />
+            <span>Markdown Viewer</span>
+            </div>
+            </div>
+        
+            <Nav className='nav-items cursor-pointer '>
+            {
+                role==="admin"?<AdminNavLinks/>:<UserNavLinks/>
+            }
+            </Nav>
+       <Nav>
+       <Nav.Item><h4>{` ${userData.firstName} ${userData.lastName} `}</h4></Nav.Item>
+&nbsp;
+<Nav.Item><button  className="logout btn  " bg="primary" data-bs-theme="dark"> <Logouticon />Logout</button></Nav.Item>
+
+       </Nav>
+      
+      </div>
+    </header>
+  );
+};
+function AdminNavLinks(){
+    let navigate = useNavigate()
+    let logout = useLogout()
+    return <>
+            <Nav.Item onClick={()=>navigate('/dashboard')}>Dashboard</Nav.Item>
+    </>
+}
+
+function UserNavLinks(){
+    let navigate = useNavigate()
+    let logout = useLogout()
+    return <>
+            <Nav.Item onClick={()=>navigate('/home')}>Home</Nav.Item>
+            <Nav.Item onClick={()=>navigate('/dashboard')}>Dashboard</Nav.Item>
+            <Nav.Item onClick={()=>navigate('/create')}>Create</Nav.Item>
+    </>
+}
+
+export default Header; -->

@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root {
+  --background-body: #292929;
+  --background-content: #1d1d1d;
+  --text-color: #e5e5e5;
+  --background-header: #232323;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--background-body) !important;
+  color: var(--text-color) !important;
+}
+/* Global */
+svg {
+  width: 1.5rem;
+}
+button.icon {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.container {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 0 0.5rem 0 0.5rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+article{
+  background-color: #ffffff;
+  border-radius: 5px;
+  border-color: #410152;
+  border-width: 5px;
+  box-shadow: 2px 2px 6px 3px rgb(43, 3, 85);
+  border-style: double;
+
+}
+Form{
+  width:60vw;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: hsl(209, 34%, 30%);
+}
+
+.section {
+  width: 90vw !important;
+  max-width: 1170px !important;
+}
+section .input {
+  border-radius: 5px;
+  border-color: #410152;
+  border-width: 5px;
+  box-shadow: 2px 2px 6px 3px rgb(43, 3, 85);
+  border-style: double;
+}
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+  main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1122px){
+  main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+} 
+.markdown {
+  padding: 4rem;
+  display: grid;  
+}
+.input {
+  border-color: transparent;
+  border-radius: 0.25rem;
+  font-size: 1.2rem;
+  line-height: 2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  min-height: 30vh;
+}
+.input,
+.result {
+  padding: 1rem 2rem;
+}
+
+@media screen and (min-width: 992px) {
+  .markdown {
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+  }
+  main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* unique styles */
+img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+blockquote {
+  font-size: 2rem;
+  font-style: italic;
+  border-left: 5px solid hsl(210, 22%, 49%);
+  color: hsl(210, 22%, 49%);
+  padding-left: 2rem;
+  line-height: 2;
+  margin-bottom: 1.5rem;
+}
+blockquote ::first-letter {
+  text-transform: uppercase;
+}
+pre {
+  background: #222;
+  display: inline-block;
+  border-radius: 0.25rem;
+  padding: 1rem 2rem;
+  color: yellow;
+  margin-bottom: 1.5rem;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #2a2d34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* header */
+ button{
+  background: linear-gradient(to bottom, rgb(90, 29, 107), rgba(90, 37, 139, 0.8)) !important;
+  border: none !important;
+  cursor: pointer;
+  
+ }
+.brand-icon{
+  width: 30px;
+  height: 40px;
+  margin-right: 20px;
+}
+.brand-name{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.nav-items{
+ margin-right:-60px;
+  align-items: center;
+  
+}
+.header-nav-items{
+  cursor: pointer;
+}
+.nav-links:hover{
+  border-radius: 8px;
+ 
+  box-shadow:0px -8px 10px -2px rgba(112, 49, 163, 0.6), 0px 8px 10px -2px rgba(112, 49, 163, 0.61)
+}
+
+.blog-container{
+ max-width: 60vw;
+ max-height: 100vw;
+
+display:flex ;
+justify-content:center ;
+margin-left: 20vw;
+ 
+}
+.blog-container .card{
+  background-color: #ffffff !important;
+  margin-top: 40px;
+  max-width: 800px;
+  max-height: 300px;
+}
+
+.card-footer{
+display: flex;
+justify-content: space-between;
+
+}
+
+.login-container{
+  max-width: 70vw;
+  display: flex;
+justify-content: center;
+  margin-top: 10%;
+  margin-left: 10vw;
+}
+
+.login-brand {
+  justify-content: center;
+margin-right: 40px;
+  width: 300px;
+  height: 300px;
+margin-top: 50px;
+}
+.login-box{
+  height: 300px;
+  width: 400px;
+border-radius: 8px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+  box-shadow:0px -8px 10px -2px rgba(112, 49, 163, 0.6), 0px 8px 10px -2px rgba(112, 49, 163, 0.61)
+}
+.signup{
+  justify-content: center;
+
+}
+.signup p{
+  color: #ffffff;
+}
+.signup Link{
+  color: #61dafb !important;
+  text-decoration: none !important;
+}
