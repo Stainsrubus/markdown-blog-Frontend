@@ -10,12 +10,22 @@ function SignIn() {
   let [email,setEmail] = useState("")
   let [password,setPassword] = useState("")
   let navigate = useNavigate()
-  let handleLogin = async()=>{
+  const pageStyles = {
+    background: 'url("https://images.freecreatives.com/wp-content/uploads/2016/03/Galaxy-Nebula-Background.jpg")',
+    backgroundSize: 'cover',
+  };
+  const handleLogin = async(event)=>{
+    event.preventDefault(); 
+    if (!email || !password) {
+      toast.error('Please fill all the fields');
+      return; // Stop further execution if fields are empty
+    }
     try {
       let res = await AxiosService.post(`/user/login`,{
         email,
         password
       })
+  
       if(res.status===200)
       {
         toast.success(res.data.message)
@@ -24,7 +34,7 @@ function SignIn() {
         
         if(res.data.userData.role === 'admin')
         {
-            navigate('/dashboard')
+            navigate('/admin_dashboard')
         }
         else
         {
@@ -36,31 +46,31 @@ function SignIn() {
     }
   }
   return <>
-  <div className='login-container d-flex ' >
+  <div className='wrapper  container-fluid' >
+  <div className='login-container container container-fluid d-flex ' >
     <div>
       <img className='login-brand' src='src/assets/markdown_logo.png' />
     </div>
-    <div>
+    <div className='form-container' >
     <h1 style={{textAlign:"center"}}>Login Here!</h1>
-  <Form className='login-box'>
-      <Form.Group className="mb-3">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" onChange={(e)=>setEmail(e.target.value)}/>
+  <Form className='login-box'style={pageStyles} onSubmit={handleLogin}>
+      <Form.Group className=" mb-3">
+        <Form.Control className='input-box' type="email" placeholder="Enter email" onChange={(e)=>setEmail(e.target.value)}/>
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+        <Form.Control  className='input-box'type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
       </Form.Group>
-      <Button variant="primary" onClick={handleLogin}>
-        Submit
-      </Button>
+      <Button variant='primary' className='btn' type='submit'>
+  Submit
+</Button>
       <div className=' signup d-flex mt-4'>
       <p className='text-center'>Dont have an account? </p> 
-      <Link to="/signup">SignUp</Link>
+      <Link to="/signup" style={{textDecoration:"none",color:"white",fontWeight:"bolder"}}> ꧁ SignUp ꧂ </Link>
       </div>
       
     </Form>
+  </div>
   </div>
   </div>
   </>

@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ReactMarkdown from "react-markdown";
+import { useNavigate } from 'react-router-dom';
 
 function Blog_tile({blog}) {
   let userData = JSON.parse(sessionStorage.getItem('userData'))
-  console.log(userData.firstName,userData.lastName)
-
+  let navigate = useNavigate()
   let getUserName= async()=>{
     try{
         let res=await AxiosService.get('/user')
@@ -30,15 +30,17 @@ function Blog_tile({blog}) {
       <Card.Header> <Card.Title>{blog.title}</Card.Title></Card.Header>
       <Card.Body>
        
-        <Card.Text>
+        <Card.Text className='card-content'>
           <ReactMarkdown children={blog.description}/>
          
         </Card.Text>
-        <Button variant="primary">view more</Button>
       </Card.Body>
-      <Card.Footer className="card-footer  text-muted">
-       <div ><h6>Created By:{userData.firstName}{userData.lastName}</h6></div>
-     <div> <h6>Created At:{blog.createdAt}</h6></div>
+      <Card.Footer className="card-footer justify-content-center text-muted">
+    
+       {/* <div ><h6>Created By:{userData.firstName}{userData.lastName}</h6></div> */}
+             <Button  key={blog._id} onClick={()=>navigate(`/viewmorehome/${blog._id}`)}>view more</Button>
+
+     {/* <div> <h6>Created At:{blog.createdAt}</h6></div> */}
      </Card.Footer>
     </Card>
     </div>

@@ -28,8 +28,12 @@ function Home() {
     useEffect(()=>{
         getBlogs()
       },[])
-      return <div className='container-fluid'>
-        <div className='blogs-wrapper'>
+
+      
+
+      
+      return <div className='container-fluid '>
+        <div className='blogs-wrapper '>
           {
             blogs.map((e)=>{
               return <Blog_tile blog={e} key={e._id}/>

@@ -7,18 +7,19 @@ import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
 
 
-function dashboard_tile({blog}) {
+function dashboard_tile({blog, updateBlogsAfterDelete}) {
   let userData = JSON.parse(sessionStorage.getItem('userData'))
-  console.log(userData.firstName,userData.lastName)
   let navigate = useNavigate()
 
   let deleteBlog = async()=>{
-    console.log("error")
+    
      try { 
        let res = await AxiosService.delete(`/blogs/${blog._id}` )
-       if(res.status===201)
+       if(res.status===200)
        {
          toast.success(res.data.message)
+         updateBlogsAfterDelete();
+
        }
      } catch (error) {
        toast.error(error.response.data.message)
@@ -27,6 +28,11 @@ function dashboard_tile({blog}) {
       logout()
         }
     }}
+    // let handleDelete= (index) =>{
+    //     let newArray=[...data]//deepcopy
+    //     newArray.splice(index,1)
+    //     setData(newArray)
+    //   }
 // let deleteBlog = async () => {
 //     try {
 //       let res = await AxiosService.delete(`/blogs/:${params.id}`);
@@ -51,14 +57,14 @@ function dashboard_tile({blog}) {
       <Card.Header> <Card.Title>{blog.title}</Card.Title></Card.Header>
       <Card.Body>
        
-        <Card.Text>
-          <ReactMarkdown children={blog.description}/>
+        <Card.Text className='card-content' >
+          <ReactMarkdown children={blog.description} />
          
         </Card.Text>
-        <Button variant="primary" key={blog._id} onClick={()=>navigate(`/blog/:${blog.id}`)}>view more</Button>
       </Card.Body>
       <Card.Footer className="card-footer  text-muted">
      <Button key={blog._id} onClick={()=>navigate(`/blog/${blog._id}`)} >Edit</Button>
+     <Button key={blog._id} onClick={()=>navigate(`/viewmore/${blog._id}`)}>view more</Button>
      <Button key={blog._id}  onClick={deleteBlog} >Delete</Button>
      </Card.Footer>
     </Card>

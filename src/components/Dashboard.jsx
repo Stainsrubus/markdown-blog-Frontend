@@ -9,6 +9,8 @@ import useLogout from './hooks/useLogout'
 function Dashboard() {
     let [blogs,setBlogs] = useState([])
     let logout = useLogout()
+    
+   
    
     let getBlogs = async()=>{
         try{
@@ -29,11 +31,15 @@ function Dashboard() {
     useEffect(()=>{
         getBlogs()
       },[])
+      const updateBlogsAfterDelete = () => {
+        getBlogs();
+      };
       return <div className='container-fluid'>
         <div className='blogs-wrapper'>
           {
             blogs.map((e)=>{
-              return <Dashboard_tile blog={e} key={e._id}/>
+              return <Dashboard_tile blog={e} key={e._id}
+              updateBlogsAfterDelete={updateBlogsAfterDelete} />
             })
           }
         </div>

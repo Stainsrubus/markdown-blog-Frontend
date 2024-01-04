@@ -14,6 +14,8 @@ function Create() {
   let [title,setTitle] = useState("")
   let navigate = useNavigate()
   let logout = useLogout()
+  
+
   let createBlog = async()=>{
     try {
       let res = await AxiosService.post('/blogs/create',{title,description})
@@ -32,15 +34,15 @@ function Create() {
     return (
       
       <main>  
-        <section className="markdown">
+        <section className="markdown ">
         <Form>
             <Form.Group className="mb-3 ">
               <Form.Label>Title</Form.Label>
-              <Form.Control type="text" placeholder="Enter Title"  onChange={(e)=>setTitle(e.target.value)}/>
+              <Form.Control  className='input' type="text" placeholder="Enter Title"  onChange={(e)=>setTitle(e.target.value)}/>
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
-              <Form.Control as="textarea" placeholder="Description" onChange={(e) => setDescription(e.target.value)}/>
+              <Form.Control className='input'  as="textarea" placeholder="Description" onChange={(e) => setDescription(e.target.value)}/>
             </Form.Group>
             <article className="result">
             <h5># Markdown Preview</h5>
@@ -51,8 +53,8 @@ function Create() {
             </Button>
       
         </Form>
-          
-      </section>
+        </section>
+       
       </main>
       
     );

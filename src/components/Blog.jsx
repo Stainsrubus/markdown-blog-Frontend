@@ -44,7 +44,6 @@ function EditBlog(){
       }
     }
   }
-
   useEffect(()=>{
     if(params.id)
     {
