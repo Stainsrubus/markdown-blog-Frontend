@@ -49,7 +49,7 @@ function SignIn() {
   <div className='wrapper  container-fluid' >
   <div className='login-container container container-fluid d-flex ' >
     <div>
-      <img className='login-brand' src='src/assets/markdown_logo.png' />
+      <img className='login-brand' src='../assets/markdown_logo.png' />
     </div>
     <div className='form-container' >
     <h1 style={{textAlign:"center"}}>Login Here!</h1>
