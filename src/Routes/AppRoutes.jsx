@@ -1,7 +1,7 @@
 import React from 'react'
 import {Routes,Route, Navigate} from 'react-router-dom'
 import SignUp from '../components/SignUp'
-import SignIn from '../components/Signin'
+import SignIn from '../components/SignIn'
 import Create from '../components/Create'
 import Dashboard from '../components/Dashboard'
 import Blog from '../components/Blog'
