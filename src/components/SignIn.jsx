@@ -5,6 +5,7 @@ import {toast} from 'react-toastify'
 import AxiosService from './utils/ApiService';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import logoImage from "src/assets/markdown_logo.png"
 
 function SignIn() {
   let [email,setEmail] = useState("")
@@ -49,7 +50,7 @@ function SignIn() {
   <div className='wrapper  container-fluid' >
   <div className='login-container container container-fluid d-flex ' >
     <div>
-      <img className='login-brand' src='./src/assets/markdown_logo.png' />
+      <img className='login-brand' src={logoImage} alt='Markdown Logo' />
     </div>
     <div className='form-container' >
     <h1 style={{textAlign:"center"}}>Login Here!</h1>
