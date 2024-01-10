@@ -5,7 +5,7 @@ import {toast} from 'react-toastify'
 import AxiosService from './utils/ApiService';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import logoImage from "src/assets/markdown_logo.png"
+import logoImage from "../assets/markdown_logo.png"
 
 function SignIn() {
   let [email,setEmail] = useState("")
