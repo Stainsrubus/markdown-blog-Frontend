@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
 import { Button } from "react-bootstrap";
 import { Logouticon } from "../../assets/icons";
-import logoImage from "../assets/markdown_logo.png"
+import logoImage from "../../assets/markdown_logo.png"
 
 function Sidebar({ name, ...props }) {
   const [show, setShow] = useState(false);
