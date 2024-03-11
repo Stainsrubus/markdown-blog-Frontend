@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
 import { Button } from "react-bootstrap";
 import { Logouticon } from "../../assets/icons";
+import logoImage from "../assets/markdown_logo.png"
 
 function Sidebar({ name, ...props }) {
   const [show, setShow] = useState(false);
@@ -22,7 +23,7 @@ function Sidebar({ name, ...props }) {
     <div className="sidebar-container">
       <div className="sidebar d-flex flex-column align-items-center">
         <img
-          src="src/assets/markdown_logo.png"
+          src={logoImage}
           className="brand-icon mt-3 ms-3"
           onClick={handleShow}
           style={{ cursor: "pointer" }}
@@ -37,7 +38,7 @@ function Sidebar({ name, ...props }) {
             <Offcanvas.Title>
               <Navbar.Brand className="brand-name text-gradient">
                 <img
-                  src="src/assets/markdown_logo.png"
+                  src={logoImage}
                   className="brand-icon"
                 />
                 Markdown Viewer
